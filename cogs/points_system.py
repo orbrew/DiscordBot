@@ -1,17 +1,15 @@
 from discord.ext import commands
-
 class PointsSystem(commands.Cog):
-
-  def __init__(self,client):
-    self.client = client
+  def __init__(self,bot):
+    self.bot = bot
 
   @commands.command()
   async def points(self,ctx):
     await ctx.send('0 points')
 
 
-def setup(client):
-  client.add_cog(PointsSystem(client))
+def setup(bot):
+  bot.add_cog(PointsSystem(bot))
 
 
 """ 
@@ -27,7 +25,4 @@ PointsSystem:
     Use PogBot commands:
       [2]song played
       
-    
-
-
  """
