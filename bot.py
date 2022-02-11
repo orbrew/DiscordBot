@@ -1,8 +1,13 @@
 import os
+import discord
 from discord.ext import commands
 
+intents = discord.Intents.default()
+intents.members = True
+intents.presences = True
+
 # set prefix for bot to interpret commands
-bot = commands.Bot(command_prefix= '!', case_insensitive=True)
+bot = commands.Bot(command_prefix= '!', case_insensitive=True, intents = intents)
 
 @bot.command()
 async def load(ctx, extension):
