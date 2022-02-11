@@ -53,6 +53,15 @@ class Info(Cog):
 
         await ctx.send(embed=embed)
 
+    @command(name="online")
+    async def online_info(self, ctx):
+        user_list=[]
+        for member in ctx.guild.members:
+            if str(member.status) != "Offline":
+                user_list.append(member.name)
+        await ctx.send(user_list)
+
+
 
 def setup(bot):
     bot.add_cog(Info(bot))
