@@ -55,12 +55,16 @@ class Info(Cog):
 
     @command(name="online")
     async def online_info(self, ctx):
-        user_list=[]
-        for member in ctx.guild.members:
-            if str(member.status) != "Offline":
-                user_list.append(member.name)
-        await ctx.send(user_list)
-
+        for ctx.id in ctx.guild.members:
+            if str(ctx.id.status) == "online":
+                status = "🟢"
+            elif str(ctx.id.status) == "idle":
+                status = "🟡"
+            elif str(ctx.id.status) == "dnd":
+                status = "🔴"
+            else:
+                continue
+            await ctx.send(f"{status} {ctx.id}")
 
 
 def setup(bot):
